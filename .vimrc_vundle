@@ -14,6 +14,7 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'vim-scripts/taglist.vim'
 "Plugin 'szw/vim-tags'
 Plugin 'ervandew/supertab'
+Plugin 'tpope/vim-fugitive' " GIT
 Plugin 'vim-scripts/winmanager--Fox'
 Plugin 'tpope/vim-dispatch'     " asynchronus build
 "Plugin 'vim-scripts/gdbvim'
