@@ -1,3 +1,14 @@
+"source $VIMRUNTIME/vimrc_example.vim
+if has('persistent_undo')           "check if your vim version supports
+    set undodir=$HOME/.vim/undo     "directory where the undo files will be stored
+    set undofile                    "turn on the feature
+endif
+autocmd BufReadPost *
+    \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+    \ |   exe "normal! g`\""
+    \ | endif
+
+
 source ~/.vimrc_vundle
 
 
@@ -27,13 +38,13 @@ set smartindent " use intelligent indentation for C
 set tabstop=4        " tab width is 4 spaces
 set shiftwidth=4     " indent also with 4 spaces
 set smarttab         " 
-set expandtab        " replace tabs to spaces
+"set expandtab        " replace tabs to spaces
 set list             " view tab and spase
 set listchars=tab:>-,trail:.
 
 
 """ configure wrap lines
-set textwidth=110
+set textwidth=100
 set nowrap
 
 
@@ -153,16 +164,16 @@ let g:NERDCommentEmptyLines = 1
 "
 " for winmanager
 "
-map <c-w><c-f> :FirstExplorerWindow<cr>
-map <c-w><c-b> :BottomExplorerWindow<cr>
-map <c-w><c-t> :WMToggle<cr>
+map <c-w><c-f> :FirstExplorerWindow<CR>
+map <c-w><c-b> :BottomExplorerWindow<CR>
+map <c-w><c-t> :WMToggle<CR>
 
 
 "
 " for taglist
 "
-let Tlist_Use_Right_Window=0
-let Tlist_WinWidth=30
+let Tlist_Use_Right_Window=1
+"let Tlist_WinWidth=30
 nmap <F8> :TlistToggle<CR>
 
 
@@ -213,10 +224,10 @@ let g:SuperTabContextDefaultCompletionType = "<c-n>"
 "
 " build mappings
 "
-map <F7>   :wall \| :compiler gcc \| make     \| :tabnew \| :copen<Cr>
-map <F6>   :wall \| :compiler gcc \| make c   \| :tabnew \| :copen<Cr>
-map <c-F6> :wall \| :compiler gcc \| make cz  \| :tabnew \| :copen<Cr>
-map <S-F6> :wall \| :compiler gcc \| make ccz \| :tabnew \| :copen<Cr>
-map <F4>   :cn<Cr>zvzz:cc<Cr>
-map <S-F4> :cp<Cr>zvzz:cc<Cr>
-map <c-F4> :wall \| :cclose<Cr>:q<Cr>
+map <F7>   :wall \| :compiler gcc \| make     \| :tabnew \| :copen<CR>
+map <F6>   :wall \| :compiler gcc \| make c   \| :tabnew \| :copen<CR>
+map <c-F6> :wall \| :compiler gcc \| make cz  \| :tabnew \| :copen<CR>
+map <S-F6> :wall \| :compiler gcc \| make ccz \| :tabnew \| :copen<CR>
+map <F4>   :cn<CR>zvzz:cc<CR>
+map <S-F4> :cp<CR>zvzz:cc<CR>
+map <c-F4> :wall \| :cclose<CR>:q<CR>
